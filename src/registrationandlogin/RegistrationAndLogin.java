@@ -57,11 +57,108 @@ public class RegistrationAndLogin {
         }
         
         //part 2 code
-        System.out.println("Welcome to quick Chat");
+        Messageclass1 mobj = new Messageclass1();
+      int totalMessagesSent = 0;
+      int choice = -1; // Initialized to a non-zero value so the loop starts
+
+     while (choice != 0) {
+     System.out.println("\nChoose an option:");
+     System.out.println("1) Send Message");
+     System.out.println("2) Show recently sent message");
+     System.out.println("3) Quit");
+    
+     choice = scan.nextInt();
+     scan.nextLine(); // 
+    
+     switch (choice) {
+        
+        case 1:
+            System.out.println("Enter message: ");
+            String message = scan.nextLine();
+            
+            System.out.println("\nOptions for your message:");
+            System.out.println("1) Send Message");
+            System.out.println("2) Disregard Message");
+            System.out.println("3) Store Message to send later");
+            System.out.print("Choose an option: ");
+            
+            int messageChoice = scan.nextInt();
+            scan.nextLine(); // Clears buffer for sub-menu input
+            
+            switch (messageChoice) {
+                case 1:
+                    System.out.println("Message successfully sent");
+                    totalMessagesSent++;
+                    
+                           System.out.println("Enter message: ");
+    
+     
+        System.out.print("Enter recipient cell number: ");
+        String recipient = scan.nextLine();
         
         
-    }
-}  
+        long random10Digit = (long) (Math.random() * 9_000_000_000L) + 1_000_000_000L;
+        String generatedId = String.valueOf(random10Digit);
+
+     
+        Messageclass1 msg = new Messageclass1();
+
+        
+        if (!msg.checkMessage()) {
+            System.out.println("Please enter a message of less than 250 characters.");
+            break;
+        }
+        
+        if (!msg.checkRecipientCell()) {
+            System.out.println("Error: Invalid recipient cellphone number.");
+            break;
+        }
+
+        String calculatedHash = msg.createMessageHash();
+
+       
+        String transactionResult = msg.SentMessage();
+        System.out.println(transactionResult);
+
+        
+        if (transactionResult.equals("Message successfully sent")) {
+            totalMessagesSent++;
+            
+            System.out.println("\n-----------------------------------------");
+            System.out.println("Message ID: " + generatedId);
+            System.out.println("Message Hash: " + calculatedHash);
+            System.out.println("Recipient: " + recipient);
+            System.out.println("Message: " + message);
+            System.out.println("-----------------------------------------");
+                    break;
+            }
+            break; // Breaks out of main case 1
+
+        case 2:
+            System.out.println("Coming");
+            break;
+
+        case 3:
+            System.out.println("Exiting program");
+            choice = 0; // Setting choice to 0 terminates the while loop execution
+            break;
+
+        default:
+            System.out.println("Invalid option, try again.");
+            break;
+            }//SWITCH
+     }
+     }//WHILE
+    }//END OF METHOD
+}//END OF CLAA             
+
+             
+
+    
+        
+                
+    
+ 
      
         
         
