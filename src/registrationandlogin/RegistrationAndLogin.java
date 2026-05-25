@@ -55,6 +55,11 @@ public class RegistrationAndLogin {
         } else {
             System.out.println("Username or password or cellphone is incorrect, " + name);
         }
+        
+        //part 2 code
+        System.out.println("Welcome to quick Chat");
+        
+        
     }
 }  
      
