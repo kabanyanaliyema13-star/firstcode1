@@ -10,7 +10,7 @@ public class Messageclass1 {
     private String Messagehash;
     private String Message;
     private String RecipientCell;
-    private int NummessagesSent;
+    private int NummessagesSent = 0;
     private int totalMessage;
 
     public Messageclass1() {
@@ -111,7 +111,9 @@ public String getRecipientCell() {
             return false;
         }
     }
-          
+       public void addMesages(){
+           NummessagesSent++;
+       }   
      public int totalMessage(){
          return NummessagesSent;
          
@@ -144,7 +146,9 @@ public String getRecipientCell() {
     }
 
     
-    }
+}
+    
+    
 
    
      

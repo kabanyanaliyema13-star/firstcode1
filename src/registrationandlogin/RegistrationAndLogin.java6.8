@@ -61,51 +61,49 @@ public class RegistrationAndLogin {
         
         //part 2 code
        
-              int totalMessagesSent = 0;
-      int choice = -1;
+        
+      int totalMessagesSent = 0;
+      int choice = -1; // Initialized to a non-zero value so the loop starts
 
-         MessageManger msg = new MessageManger(); // <-- MOVE HERE, outside while
-    
-
-     
-    
-       // Initialized to a non-zero value so the loop starts
-
-     while (choice != 3) {
+     while (choice != 0) {
      System.out.println("\nChoose an option:");
      System.out.println("1) Send Message");
      System.out.println("2) Show recently sent message");
      System.out.println("3) Quit");
-     System.out.print("4)StoreMessages:");
-      choice = scan.nextInt();
-     scan.nextLine();
     
-      // 
-      
-               
+     choice = scan.nextInt();
+     scan.nextLine(); // 
     
      switch (choice) {
         
         case 1:
-        System.out.println("\nOptions for your message:");
-    System.out.println("1) Send Message");
-    System.out.println("2) Disregard Message"); 
-    System.out.println("3) Store Message to send later");
+            System.out.println("Enter message: ");
+            String message = scan.nextLine();
+            
+            System.out.println("\nOptions for your message:");
+            System.out.println("1) Send Message");
+            System.out.println("2) Disregard Message");
+            System.out.println("3) Store Message to send later");
+            System.out.print("Choose an option: ");
+            
+            int messageChoice = scan.nextInt();
+            scan.nextLine(); // Clears buffer for sub-menu input
+            
+            switch (messageChoice) {
+                case 1:
+                    System.out.println("Message successfully sent");
+                    totalMessagesSent++;
+                    
+                           System.out.println("Enter message: ");
     
-    System.out.print("Enter message: ");
-    String message = scan.nextLine();
-
-    System.out.print("Choose an option: ");
-    int messageChoice = scan.nextInt();
-    scan.nextLine(); // <-- THIS 1 LINE FIXES THE SKIP
-
-    switch (messageChoice) {
-        case 1:
-            System.out.print("Enter recipient cell number: ");
-            String recipient = scan.nextLine();
-               
+     
+        System.out.print("Enter recipient cell number: ");
+        String recipient = scan.nextLine();
         
-          
+       
+
+     
+    
          Messageclass1 mobj = new Messageclass1();
         long random10Digit = (long) (Math.random() * 9_000_000_000L) + 1_000_000_000L;
 String generatedId = String.valueOf(random10Digit);
@@ -115,7 +113,7 @@ String generatedId = String.valueOf(random10Digit);
            mobj.setRecipientCell(recipient);
 
 
-
+   
         boolean isMessageValid = mobj.checkMessage();
         boolean isMessageIdValid = mobj.checkMessageId();
         boolean isRecipientCellValid = mobj.checkRecipientCell();
@@ -150,82 +148,31 @@ String generatedId = String.valueOf(random10Digit);
             System.out.println("Recipient: " + recipient);
             System.out.println("Message: " + message);
             System.out.println("-----------------------------------------");
-        }
-          break;
-            case 2:
-                System.out.println("Message disregarded");
-                break;
-
-            case 3:
-                System.out.println("Message stored for later");
-                break;
-        }
-      
-             
-    
-            // Breaks out of main case 1
-
-case 2:
-    System.out.println("Show recently sent message");
-    break;
-
-case 3:
-    System.out.println("Goodbye");
-    break;
-
-case 4:
-
-    System.out.println("1) Display sender + recipient");
-    System.out.println("2) Display longest message");
-      System.out.println("3) Search for Messages by recipient");
-    System.out.println("4) Search for MessageIds");
-    System.out.println("5) Delete messages using messageHash");
-    System.out.println("6) Display full report");
-
-    int Option = scan.nextInt();
-    scan.nextLine();
-
-    switch (Option) {
-
-        case 1:
-            msg.displaySenderRecipient();
-            break;
+                    break;
+            }
+            break; // Breaks out of main case 1
+ // Breaks out of main case 1
+ // Breaks out of main case 1
+ // Breaks out of main case 1
+ // Breaks out of main case 1
+ // Breaks out of main case 1
+ // Breaks out of main case 1
+ // Breaks out of main case 1
 
         case 2:
-            System.out.println(msg.displaylongestStoredMessages());
+            System.out.println("Coming");
             break;
-            
+
         case 3:
-                  System.out.println("Please enter the Recipient Number to search:");
-        String searchNumber = scan.nextLine();
-        msg.searchRecipient(searchNumber);    
-        break;
-        
-              
-        case 4:
-            System.out.println("Please enter MessageId");
-            String MessageId = scan.nextLine();
-            System.out.println(msg.searchMessageId(MessageId));
-            break;
-
-        case 5:
-            System.out.println("Please enter Message Hash");
-            String hash = scan.nextLine();
-            System.out.println(msg.deleteMessagebyHash(hash));
-            break;
-
-        case 6:
-            msg.displayReportfulldetail();
+            System.out.println("Exiting program");
+            choice = 0; // Setting choice to 0 terminates the while loop execution
             break;
 
         default:
-            System.out.println("Invalid option");
-    }
-    break;
-       
-          
-     }//SWITCH
-            
+            System.out.println("Invalid option, try again.");
+            break;
+            }//SWITCH
+     }
      }//WHILE
     }//END OF METHOD
 }//END OF CLAA             

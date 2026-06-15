@@ -13,6 +13,8 @@ public class MessageManger {
   String []StoredMessages= new String[5];
   String[] correctRecipient= new String[5];
   String[]  messages= new String[5];
+    String[] recipient= new String[5];
+  
   
   int messageCount = 0;
   //method creation
@@ -27,6 +29,7 @@ public class MessageManger {
       }  
       return "Message Id not found";
  }
+  
    
    
    public  String displaylongestStoredMessages(){
@@ -47,6 +50,24 @@ public class MessageManger {
     }
 
     
+}
+   public void searchRecipient(String searchNumber) {
+    boolean found = false;
+
+    for (int i = 0; i < messageCount; i++) {
+        
+        if (recipient[i].trim().equals(searchNumber.trim())) {
+            
+            System.out.println("\n--- Message Found ---");
+            System.out.println("Message: " + messages[i]);
+            System.out.println("----------------------");
+            found = true; 
+        }
+    }
+
+    if (!found) {
+        System.out.println("No messages found matching recipient number: " + searchNumber);
+    }
 }
     public String searchallStoredMessages(String storedMessages){
      String allMesssagesFound="";
